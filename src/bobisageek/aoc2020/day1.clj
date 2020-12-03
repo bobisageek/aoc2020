@@ -4,12 +4,12 @@
 (defn parse-input [lines] (map #(Integer/parseInt %) lines))
 #_(parse-input (u/day-lines "1min"))
 
+; part 1
 (defn look-for-complement [seen cur target]
   (if-let [a (seen cur)]
     (reduced (* a cur))
     (assoc seen (- target cur) cur)))
 
-; part 1
 #_(reduce #(look-for-complement %1 %2 2020) {} (parse-input (u/day-lines "1")))
 
 ; part 2
@@ -19,9 +19,9 @@
       (for [ind-x c
             ind-y c
             ind-z c
+            :when (< ind-x ind-y ind-z)
             :let [x (nth inp ind-x)
                   y (nth inp ind-y)
                   z (nth inp ind-z)]
-            :when (and (distinct? ind-x ind-y ind-z) (= 2020 (+ x y z)))]
+            :when (= 2020 (+ x y z))]
         (* x y z))))
-
