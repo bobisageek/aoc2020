@@ -18,10 +18,9 @@
 
 ; part 1
 (defn valid-password-part-1? [[min max char-set pass]]
-  (<= min (count (filter char-set pass)) max))
+  (<= min (u/count-if char-set pass) max))
 #_(->> (parse "2")
-    (filter valid-password-part-1?)
-    count)
+    (u/count-if valid-password-part-1?))
 
 ; part 2
 (defn valid-password-part-2? [[pos-1 pos-2 char-set pass]]
@@ -30,5 +29,4 @@
     (= 1 (count p))))
 
 #_ (->> (parse "2")
-     (filter valid-password-part-2?)
-     count)
+     (u/count-if valid-password-part-2?))

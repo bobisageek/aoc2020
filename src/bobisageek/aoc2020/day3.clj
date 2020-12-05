@@ -6,7 +6,7 @@
         map-lines (map cycle (take-nth down tree-map))
         positions (iterate (partial + right) 0)
         path (map nth map-lines positions)]
-    (->> (filter #{\#} path) count)))
+    (u/count-if #{\#} path)))
 
 ; part 1
 #_ (tree-count (u/day-lines 3) [3 1])

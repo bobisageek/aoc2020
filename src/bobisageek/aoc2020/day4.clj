@@ -51,8 +51,7 @@
 
 (defn part2 [input]
   (let [passports (split-passports input)]
-    (->> (filter #(and (valid-passport-part-1? %) (validate-passport-fields %)) passports)
-      count)))
+    (u/count-if #(and (valid-passport-part-1? %) (validate-passport-fields %)) passports)))
 
 
 

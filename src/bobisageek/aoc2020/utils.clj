@@ -14,3 +14,5 @@
 
 (defn rgx-extract-pieces [re lines]
   (map (comp (partial drop 1) first (partial re-seq re)) lines))
+
+(def count-if (comp count filter))
