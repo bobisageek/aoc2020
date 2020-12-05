@@ -5,7 +5,7 @@
   (let [ ; the lines of input that we'll need to check
         map-lines (map cycle (take-nth down tree-map))
         positions (iterate (partial + right) 0)
-        path (map #(nth %1 %2) map-lines positions)]
+        path (map nth map-lines positions)]
     (->> (filter #{\#} path) count)))
 
 ; part 1

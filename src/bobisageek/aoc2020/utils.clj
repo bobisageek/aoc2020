@@ -2,12 +2,15 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
-(defn- resource-lines [resource-path]
-  (io! (str/split-lines (slurp (io/resource resource-path)))))
+(defn- slurp-res [resource-path]
+  (io! (slurp (io/resource resource-path))))
+
+(defn day-text [day]
+  (let [res-path (str "aoc2020/" day ".txt")]
+    (slurp-res res-path)))
 
 (defn day-lines [day]
-  (let [res-path (str "aoc2020/" day ".txt")]
-    (resource-lines res-path)))
+  (str/split-lines (day-text day)))
 
 (defn rgx-extract-pieces [re lines]
   (map (comp (partial drop 1) first (partial re-seq re)) lines))
