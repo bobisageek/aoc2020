@@ -17,6 +17,3 @@
     (map (partial tree-count (u/day-lines 3)))
     (apply *))
 
-
-
-

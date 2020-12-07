@@ -17,11 +17,8 @@
   (every? (set (keys passport)) req-keys))
 
 (defn part1 [input]
-  (let [passports (split-passports input)]
-    (->> (filter valid-passport-part-1? passports)
-      count)))
+  (u/count-if valid-passport-part-1? input))
 
-#_(part1 (u/day-text "4"))
 
 (defn year-in-range [min max s]
   (and (re-matches #"[0-9]{4}" s)
@@ -46,19 +43,15 @@
                            "pid" (partial re-matches #"[0-9]{9}")})
 
 (defn validate-passport-fields [p]
-  (let [trimmed (select-keys p req-keys)]
-    (every? identity (map #((passport-validations %) (trimmed %)) (keys trimmed)))))
+  (every? identity (map #((passport-validations %) (p % "")) (keys passport-validations))))
 
-(defn part2 [input]
-  (let [passports (split-passports input)]
-    (u/count-if #(and (valid-passport-part-1? %) (validate-passport-fields %)) passports)))
+(defn part2 [passports]
+  (u/count-if validate-passport-fields passports))
 
 
 
-#_(->> (part2 (u/day-text "4")))
-
-
-
-
+#_(let [passports (split-passports (u/day-text "4"))]
+    (println (part1 passports))
+    (println (part2 passports)))
 
 
