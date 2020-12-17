@@ -13,6 +13,12 @@
   (str/split-lines (day-text day)))
 
 (defn rgx-extract-pieces [re lines]
-  (map (comp (partial drop 1) first (partial re-seq re)) lines))
+  (let [extract (comp (partial drop 1) first (partial re-seq re))]
+    (if (string? lines)
+      (extract lines)
+      (map extract lines))))
 
 (def count-if (comp count filter))
+
+(defn paragraphs [day]
+  (str/split (day-text day) #"(\r?\n)\1"))
