@@ -36,19 +36,18 @@
         filtered-nrby           (filter #(every? valid-values %) nrby)
         transposed-tickets      (apply map vector filtered-nrby)
         filter-fields           (fn [t] (set (mapv second (filter #(every? (key %) t) new-rules))))
-        field-possibilities     (mapv #(filter-fields %) transposed-tickets)
+        field-possibilities     (mapv filter-fields transposed-tickets)
         field-positions         (loop [maybes field-possibilities
                                        outs   {}]
                                   (if (every? #(contains? outs %) (range num-of-fields))
                                     outs
-                                    (let [new-maybes (map-indexed (fn [i v]
-                                                                    (set/difference v (set (vals outs)))) maybes)
+                                    (let [new-maybes (map #(set/difference % (set (vals outs))) maybes)
                                           new-outs   (into outs (keep-indexed #(when (= 1 (count %2)) [%1 (first %2)]) new-maybes))]
                                       (recur new-maybes new-outs))))
         departure-field-indexes (keep (fn [[index field-name]]
                                         (when (.startsWith field-name "departure") index)) field-positions)
         your-ticket-values      (map #(your %) departure-field-indexes)]
-    (reduce * your-ticket-values)))
+    [(reduce * your-ticket-values) (sort-by key field-positions)]))
 
 #_(part2 (parse "16"))
 
