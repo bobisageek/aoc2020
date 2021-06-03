@@ -15,7 +15,7 @@
   "The extended Euclidean algorithm
   Returns a list containing the GCD and the Bézout coefficients
   corresponding to the inputs. "
-  [a b]
+  [^int a ^int b]
   (cond (zero? a) [(Math/abs b) 0 1]
         (zero? b) [(Math/abs a) 1 0]
         :else (loop [s  0
