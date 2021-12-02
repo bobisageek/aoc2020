@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day20
-  (:require [bobisageek.aoc2020.utils :as u]
+  (:require [bobisageek.utils :as u]
             [instaparse.core :as insta]
             [clojure.set :as set]))
 

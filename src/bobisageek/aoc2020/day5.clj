@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day5
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 (def seat-num
   (comp #(Integer/parseInt % 2)

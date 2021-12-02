@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day9
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 (def parse (partial mapv read-string))
 

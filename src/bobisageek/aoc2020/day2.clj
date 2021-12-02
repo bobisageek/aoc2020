@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day2
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 ; a regex to extract the useful pieces of the line
 (def rgx #"^([0-9]+)-([0-9]+) ([a-z]): ([a-z]+)$")

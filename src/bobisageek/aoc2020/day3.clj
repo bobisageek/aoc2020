@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day3
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 (defn tree-count [tree-map [right down]]
   (let [ ; the lines of input that we'll need to check

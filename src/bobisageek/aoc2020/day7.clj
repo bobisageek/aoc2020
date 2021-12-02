@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day7
-  (:require [bobisageek.aoc2020.utils :as u]
+  (:require [bobisageek.utils :as u]
             [clojure.string :as str]
             [clojure.set :as set]))
 

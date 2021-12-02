@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day18
-  (:require [bobisageek.aoc2020.utils :as u]
+  (:require [bobisageek.utils :as u]
             [clojure.edn :as edn]))
 
 (defn domath [l]

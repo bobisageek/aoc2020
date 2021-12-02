@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day10
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 #_ (as-> (map read-string (u/day-lines "10")) $
      (conj $ 0)

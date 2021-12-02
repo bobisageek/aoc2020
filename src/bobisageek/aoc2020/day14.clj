@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day14
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 (defn parse-mask [s]
   (let [parsed          (re-find #"mask = ([01X]+)$" s)

@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day1
-  (:require [bobisageek.aoc2020.utils :as u]))
+  (:require [bobisageek.utils :as u]))
 
 (defn parse-input [lines] (map #(Integer/parseInt %) lines))
 #_(parse-input (u/day-lines "1min"))

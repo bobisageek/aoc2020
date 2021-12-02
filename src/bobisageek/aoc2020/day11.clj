@@ -1,5 +1,5 @@
 (ns bobisageek.aoc2020.day11
-  (:require [bobisageek.aoc2020.utils :as u]
+  (:require [bobisageek.utils :as u]
             [clojure.set :as set]))
 
 (def surroundings
