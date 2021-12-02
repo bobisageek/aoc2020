@@ -8,6 +8,15 @@
 /.nrepl-history
 /.nrepl-port
 *.iml
-.idea
+*.xml
+/.calva
+/.clj-kondo
+/.idea
+/.lsp
 projectFilesBackup
 /src/bobisageek/aoc2020/experiments.clj
+lego/
+/test/bobisageek/aoc2020/experiments_test.clj
+input.clj
+/src/*.clj
+/test/*.clj
