@@ -8,17 +8,17 @@
 
 #_(parse "1min")
 
-(defn part1 [nums]
+(defn count-chunked-sum-increases [chunk-size nums]
   (->> nums
+    (partition chunk-size 1)
+    (map (partial apply +))
     (partition 2 1)
     (u/count-if (partial apply <))))
 
+(def part1 (partial count-chunked-sum-increases 1))
+
 #_(part1 (parse "1"))
 
-(defn part2 [nums]
-  (->> nums
-    (partition 3 1)
-    (map (partial apply +))
-    (part1)))
+(def part2 (partial count-chunked-sum-increases 3))
 
 #_(part2 (parse "1"))
