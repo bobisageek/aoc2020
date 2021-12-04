@@ -27,5 +27,6 @@
   (reduce (fn [acc el]
             (update acc (key-fn el) (fnil conj []) (val-fn el))) {} coll))
 
-(defn paragraphs [day]
-  (str/split (day-text day) #"(\r?\n)\1"))
+(defn paragraphs 
+  ([day] (paragraphs 2020 day))
+  ([year day] (str/split (day-text year day) #"(\r?\n)\1")))
