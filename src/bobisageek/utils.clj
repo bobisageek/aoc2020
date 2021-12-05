@@ -30,3 +30,5 @@
 (defn paragraphs 
   ([day] (paragraphs 2020 day))
   ([year day] (str/split (day-text year day) #"(\r?\n)\1")))
+
+(def parse-long #(Long/parseLong %))
