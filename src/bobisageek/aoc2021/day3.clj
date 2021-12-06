@@ -2,6 +2,7 @@
   (:require [bobisageek.utils :as u]
             [clojure.string :as str]))
 
+(def parse (partial u/day-lines 2021))
 
 (defn sort-freqs
   "Sort elements of coll by occurences ascending and 
@@ -25,8 +26,7 @@
         epsilon-chars (map first min-maxes)]
     (apply bin-* (map str/join [gamma-chars epsilon-chars]))))
     
-#_(part1 (u/day-lines 2021 "3"))
-  ;; => 2498354
+#_(part1 (parse "3"))
 
 (defn popularities [selector]
   (fn [coll pos]
@@ -41,7 +41,4 @@
         [oxy-gen-rtng co2-scrubber-rtng] (map #(% lines 0) fns)]
     (bin-* oxy-gen-rtng co2-scrubber-rtng)))
 
-#_(part2 (u/day-lines 2021 "3"))
-  ;; => 3277956
-
-
+#_(part2 (parse "3"))
